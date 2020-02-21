@@ -96,7 +96,7 @@ public class VotoServiceImpl implements VotoService {
     public void validaTempoVotacao(Sessao sessao) {
         if (convertStringToDate(convertDateToString(new Date())).getTime() > convertStringToDate(sessao.getDateFinal()).getTime())
             throw new DefeaultException(
-                    messageSource.getMessage("tempo-vonta.esgotado", null, Locale.getDefault())
+                    messageSource.getMessage("waitingTime.esgotado", null, Locale.getDefault())
             );
     }
 
@@ -104,7 +104,7 @@ public class VotoServiceImpl implements VotoService {
         Optional<Voto> optionalVoto = votoRepository.findByAssociadoCpfAndSessaoId(dto.getNameAssociado().getCpf(), dto.getSessao().getId());
         if (optionalVoto.isPresent())
             throw new DefeaultException(
-                    messageSource.getMessage("cpf.registrado", null, Locale.getDefault())
+                    messageSource.getMessage("cpf.encontrado", null, Locale.getDefault())
             );
     }
 
