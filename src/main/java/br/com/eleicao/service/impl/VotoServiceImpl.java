@@ -69,13 +69,14 @@ public class VotoServiceImpl implements VotoService {
         return new VotoMapper().convertDTO(votoRepository.save(new VotoMapper().convertEntity(dto)));
     }
 
-    private void validarCpf(String cpf) {
-        ValidaCpf validaCpf = feingService.validaCpf(cpf);
-        if (!validaCpf.getStatus().equals("ABLE_TO_VOTE"))
-            throw new DefeaultException(
-                    messageSource.getMessage("cpf.inapto", null, Locale.getDefault())
-            );
-    }
+    //comentado pois api externa disponibilizada não está funcionando
+//    private void validarCpf(String cpf) {
+//        ValidaCpf validaCpf = feingService.validaCpf(cpf);
+//        if (!validaCpf.getStatus().equals("ABLE_TO_VOTE"))
+//            throw new DefeaultException(
+//                    messageSource.getMessage("cpf.invalido", null, Locale.getDefault())
+//            );
+//    }
 
     @Override
     public ResultadoDTO resultadoVotacao(Integer pautaId, Integer sessaoId) {
