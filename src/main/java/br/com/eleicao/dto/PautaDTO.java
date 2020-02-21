@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PautaDTO implements Serializable {
+public class PautaDTO {
 
     private Integer id;
     private String nome;

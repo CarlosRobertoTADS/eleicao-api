@@ -109,7 +109,7 @@ public class VotoServiceImpl implements VotoService {
             );
     }
 
-    public static Date convertStringToDate(String date){
+    public Date convertStringToDate(String date){
         SimpleDateFormat format = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         try {
             return  format.parse(date);
@@ -119,7 +119,7 @@ public class VotoServiceImpl implements VotoService {
 
     }
 
-    public static String convertDateToString(Date date){
+    public String convertDateToString(Date date){
         SimpleDateFormat format = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         String dateToStr = format.format(date);
         return dateToStr;

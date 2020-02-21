@@ -15,11 +15,9 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SessaoDTO implements Serializable {
+public class SessaoDTO {
 
     private Integer id;
-    private int number;
-    private LocalDateTime date;
     private String dateFinal;
     private String waitingTime;
     private PautaDTO pauta;

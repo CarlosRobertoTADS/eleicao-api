@@ -16,8 +16,6 @@ public class SessaoMapper {
     public Sessao convertEntity(SessaoDTO dto) {
         return Sessao.builder()
                 .id(dto.getId())
-                .number(dto.getNumber())
-                .date(dto.getDate())
                 .pauta(Pauta.builder().id(dto.getPauta().getId()).build())
                 .waitingTime(validarTempoSessao(dto.getWaitingTime()))
                 .dateFinal(dto.getDateFinal())
@@ -30,8 +28,6 @@ public class SessaoMapper {
     public SessaoDTO entityToDto(Sessao entity) {
         return SessaoDTO.builder()
                 .id(entity.getId())
-                .number(entity.getNumber())
-                .date(entity.getDate())
                 .waitingTime(validarTempoSessao(entity.getWaitingTime()))
                 .dateFinal(entity.getDateFinal())
                 .pauta(PautaDTO.builder()

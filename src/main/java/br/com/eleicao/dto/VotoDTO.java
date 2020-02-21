@@ -15,7 +15,6 @@ public class VotoDTO {
 
     private Integer id;
     private String voto;
-    private LocalDateTime date;
     private Associado nameAssociado;
     private SessaoDTO sessao;
 

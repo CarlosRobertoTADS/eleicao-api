@@ -3,6 +3,7 @@ package br.com.eleicao.service.impl;
 
 import br.com.eleicao.domain.Pauta;
 import br.com.eleicao.dto.PautaDTO;
+import br.com.eleicao.exceptions.ResourceNotFoundException;
 import br.com.eleicao.mapper.PautaMapper;
 import br.com.eleicao.repository.PautaRepository;
 import br.com.eleicao.service.PautaService;
@@ -34,7 +35,7 @@ public class PautaServiceImpl implements PautaService {
     public PautaDTO findById(Integer id) {
         Optional<Pauta> pauta = pautaRepository.findById(id);
         return new PautaMapper()
-                .convertDto(pauta.get());
+                .convertDto(pauta.orElseThrow(()-> new ResourceNotFoundException("Não encontrado")));
     }
 
     @Override

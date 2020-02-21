@@ -23,12 +23,6 @@ public class Sessao implements Serializable {
     @Column(name = "ses_id", unique = true, nullable = false)
     private Integer id;
 
-    @Column(name = "ses_numero", nullable = false)
-    private int number;
-
-    @Column(name = "ses_date", nullable = false)
-    private LocalDateTime date;
-
     @Column(name= "ses_dateFinal", nullable = false)
     private String dateFinal;
 
@@ -40,5 +34,5 @@ public class Sessao implements Serializable {
     private Pauta pauta;
 
     @OneToMany(mappedBy = "sessao")
-    List<Voto> votos;
+    private List<Voto> votos;
 }

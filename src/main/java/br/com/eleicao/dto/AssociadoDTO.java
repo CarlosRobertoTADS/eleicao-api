@@ -17,6 +17,5 @@ public class AssociadoDTO implements Serializable {
     private Integer id;
     private String cpf;
     private String nome;
-    private Sessao sessao;
-    private Voto voto;
+
 }

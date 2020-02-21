@@ -2,6 +2,7 @@ package br.com.eleicao.service.impl;
 
 import br.com.eleicao.domain.Assembleia;
 import br.com.eleicao.dto.AssembleiaDTO;
+import br.com.eleicao.exceptions.ResourceNotFoundException;
 import br.com.eleicao.mapper.AssembleiaMapper;
 import br.com.eleicao.repository.AssembleiaRepository;
 import br.com.eleicao.service.AssembleiaService;
@@ -30,7 +31,7 @@ public class AssembleiaServiceImpl implements AssembleiaService {
     @Override
     public AssembleiaDTO findById(Integer id) {
        Optional<Assembleia> assembleia = assembleiaRepository.findById(id);
-        return new AssembleiaMapper().convertDTO(assembleia.get());
+        return new AssembleiaMapper().convertDTO(assembleia.orElseThrow(() -> new ResourceNotFoundException("Não encontrado")));
     }
 
     @Override
