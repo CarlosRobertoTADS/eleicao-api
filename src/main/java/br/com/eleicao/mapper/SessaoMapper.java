@@ -1,6 +1,8 @@
 package br.com.eleicao.mapper;
 
+import br.com.eleicao.domain.Pauta;
 import br.com.eleicao.domain.Sessao;
+import br.com.eleicao.dto.PautaDTO;
 import br.com.eleicao.dto.SessaoDTO;
 
 import java.time.LocalDateTime;
@@ -16,6 +18,7 @@ public class SessaoMapper {
                 .id(dto.getId())
                 .number(dto.getNumber())
                 .date(dto.getDate())
+                .pauta(Pauta.builder().id(dto.getPauta().getId()).build())
                 .waitingTime(validarTempoSessao(dto.getWaitingTime()))
                 .dateFinal(dto.getDateFinal())
                 .build();
@@ -31,6 +34,10 @@ public class SessaoMapper {
                 .date(entity.getDate())
                 .waitingTime(validarTempoSessao(entity.getWaitingTime()))
                 .dateFinal(entity.getDateFinal())
+                .pauta(PautaDTO.builder()
+                        .id(entity.getPauta().getId())
+                        .nome(entity.getPauta().getName())
+                        .build())
                 .build();
     }
 
@@ -41,3 +48,4 @@ public class SessaoMapper {
             return waitingTime;
     }
 }
+

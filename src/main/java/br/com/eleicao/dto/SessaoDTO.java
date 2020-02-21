@@ -22,5 +22,6 @@ public class SessaoDTO implements Serializable {
     private LocalDateTime date;
     private String dateFinal;
     private String waitingTime;
+    private PautaDTO pauta;
 
 }
