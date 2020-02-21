@@ -31,15 +31,7 @@ public class Associado implements Serializable {
     @Column(name = "ass_cpf", nullable = false)
     private String cpf;
 
-    @ManyToMany
-    @JoinTable(
-            name = "voto",
-            joinColumns = @JoinColumn(name = "ass_id"),
-            inverseJoinColumns = @JoinColumn(name = "ses_id"))
-    Set<Sessao> sessaos;
 
-    @OneToMany(mappedBy = "associado")
-    Set<Voto> votos;
 
 
 

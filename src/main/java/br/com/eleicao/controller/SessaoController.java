@@ -29,7 +29,7 @@ public class SessaoController {
     }
 
     @PostMapping
-    @ApiOperation("Abrir uma sessão de votação em uma pauta, parametros tempos da sessao em segundos menor ou igual a 60, identificador da pauta(ID)")
+    @ApiOperation("Abrir sessão de votação, informar id da PAUTA, tempo da sessao em segundos <= 60")
     public SessaoDTO save(@RequestBody SessaoDTO dto) {
         return sessaoService.save(dto);
     }

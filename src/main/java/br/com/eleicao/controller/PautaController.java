@@ -28,7 +28,7 @@ public class PautaController {
     }
 
     @PostMapping
-    @ApiOperation("Cadastrar uma nova pauta")
+    @ApiOperation("Registrar Pauta")
     public PautaDTO save(@RequestBody PautaDTO dto){
         return  pautasService.save(dto);
     }

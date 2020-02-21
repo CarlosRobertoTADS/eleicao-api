@@ -30,13 +30,13 @@ public class VotoController {
     }
 
     @PostMapping
-    @ApiOperation("Registro de voto, informar o CPF e o id do associado e ")
+    @ApiOperation("Votação, input de id e cpf ")
     public VotoDTO save(@RequestBody VotoDTO dto){
         return  votoService.save(dto);
     }
 
-    @GetMapping("/resultado-votacao")
-    @ApiOperation("Relatório sobre o resultado da votação")
+    @GetMapping("/resultado")
+    @ApiOperation("Resultado da votação")
     public ResultadoDTO resultadoVotacao(
             @RequestParam(value = "pautaId") Integer pautaId,
             @RequestParam(value = "sessaoId") Integer sessaoId

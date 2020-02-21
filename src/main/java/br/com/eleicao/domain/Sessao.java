@@ -38,9 +38,6 @@ public class Sessao implements Serializable {
     @JoinColumn(name="pau_id")
     private Pauta pauta;
 
-    @ManyToMany
-    Set<Associado> associados;
-
     @OneToMany(mappedBy = "sessao")
     Set<Voto> votos;
 }
