@@ -4,6 +4,7 @@ import br.com.eleicao.domain.Sessao;
 import br.com.eleicao.domain.Voto;
 import br.com.eleicao.dto.*;
 import br.com.eleicao.exceptions.DefeaultException;
+import br.com.eleicao.exceptions.ResourceNotFoundException;
 import br.com.eleicao.mapper.SessaoMapper;
 import br.com.eleicao.mapper.VotoMapper;
 import br.com.eleicao.repository.SessaoRepository;
@@ -55,7 +56,7 @@ public class VotoServiceImpl implements VotoService {
 
     private Voto objectExists(Integer id) {
         Optional<Voto> votoOptional = votoRepository.findById(id);
-        return votoOptional.get();
+        return votoOptional.orElseThrow(() -> new ResourceNotFoundException("Não Encontrado"));
     }
 
     @Override

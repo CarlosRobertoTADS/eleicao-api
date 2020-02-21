@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 
@@ -39,5 +40,5 @@ public class Sessao implements Serializable {
     private Pauta pauta;
 
     @OneToMany(mappedBy = "sessao")
-    Set<Voto> votos;
+    List<Voto> votos;
 }
