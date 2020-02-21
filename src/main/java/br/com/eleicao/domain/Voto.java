@@ -21,18 +21,16 @@ public class Voto implements Serializable {
     @Column(name = "vot_id", unique = true, nullable = false)
     Integer id;
 
+    @Column(name = "vot_voto", unique = true, nullable = false)
     private String voto ;
-
-    @Column(name = "vot_date")
-    private LocalDateTime date;
 
     @ManyToOne
     @JoinColumn(name = "ass_id")
-    Associado associado;
+    private Associado associado;
 
     @ManyToOne
     @JoinColumn(name = "ses_id")
-    Sessao sessao;
+    private Sessao sessao;
 
 
 }
