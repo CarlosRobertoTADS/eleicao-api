@@ -28,7 +28,7 @@ public class Voto implements Serializable {
     @JoinColumn(name = "ass_id")
     private Associado associado;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "ses_id")
     private Sessao sessao;
 
