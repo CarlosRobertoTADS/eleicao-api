@@ -20,14 +20,14 @@ public class Pauta implements Serializable {
     @Column(name = "pau_id", unique = true, nullable = false)
     private Integer id;
 
-    @Column(name = "pau_nome", nullable = false)
+    @Column(name = "pau_nome")
     private String name;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="asb_id")
     private Assembleia assembleia;
 
-    @OneToMany(mappedBy="pauta", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="pauta", fetch = FetchType.EAGER)
     private Set<Sessao> sessao;
 
 }

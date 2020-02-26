@@ -21,14 +21,14 @@ public class Voto implements Serializable {
     @Column(name = "vot_id", unique = true, nullable = false)
     Integer id;
 
-    @Column(name = "vot_voto", unique = true, nullable = false)
+    @Column(name = "vot_voto")
     private String voto ;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ass_id")
     private Associado associado;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ses_id")
     private Sessao sessao;
 

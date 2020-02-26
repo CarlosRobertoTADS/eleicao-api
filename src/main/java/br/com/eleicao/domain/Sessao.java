@@ -23,16 +23,16 @@ public class Sessao implements Serializable {
     @Column(name = "ses_id", unique = true, nullable = false)
     private Integer id;
 
-    @Column(name= "ses_dateFinal", nullable = false)
+    @Column(name= "ses_dateFinal")
     private String dateFinal;
 
     @Column(name= "ses_time")
     private String waitingTime;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name="pau_id")
     private Pauta pauta;
 
-    @OneToMany(mappedBy = "sessao")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sessao")
     private List<Voto> votos;
 }

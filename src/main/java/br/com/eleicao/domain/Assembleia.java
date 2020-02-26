@@ -21,13 +21,13 @@ public class Assembleia implements Serializable {
     @Column(name = "asb_id", unique = true, nullable = false)
     private Integer id;
 
-    @Column(name = "asb_nome", nullable = false)
+    @Column(name = "asb_nome")
     private String name;
 
-    @Column(name = "asb_date", nullable = false)
+    @Column(name = "asb_date")
     private LocalDateTime date;
 
-    @OneToMany(mappedBy="assembleia")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="assembleia")
     private Set<Pauta> pautas;
 
 

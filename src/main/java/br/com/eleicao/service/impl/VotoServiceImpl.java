@@ -27,10 +27,10 @@ public class VotoServiceImpl implements VotoService {
 
     @Autowired
     private VotoRepository votoRepository;
+
     @Autowired
     private PautaService pautaService;
-    @Autowired
-    private SessaoRepository sessaoRepository;
+
     @Autowired
     private SessaoService sessaoService;
 
@@ -98,7 +98,7 @@ public class VotoServiceImpl implements VotoService {
     public void validaTempoVotacao(Sessao sessao) {
         if (convertStringToDate(convertDateToString(new Date())).getTime() > convertStringToDate(sessao.getDateFinal()).getTime())
             throw new DefeaultException(
-                    messageSource.getMessage("waitingTime.esgotado", null, Locale.getDefault())
+                    messageSource.getMessage("TEMPO ESGOTADO", null, Locale.getDefault())
             );
     }
 
@@ -106,7 +106,7 @@ public class VotoServiceImpl implements VotoService {
         Optional<Voto> optionalVoto = votoRepository.findByAssociadoCpfAndSessaoId(dto.getNameAssociado().getCpf(), dto.getSessao().getId());
         if (optionalVoto.isPresent())
             throw new DefeaultException(
-                    messageSource.getMessage("cpf.encontrado", null, Locale.getDefault())
+                    messageSource.getMessage("CPF NÃO ENCONTRADO", null, Locale.getDefault())
             );
     }
 

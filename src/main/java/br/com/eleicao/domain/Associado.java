@@ -25,10 +25,10 @@ public class Associado implements Serializable {
     @Column(name = "ass_id", unique = true, nullable = false)
     private Integer id;
 
-    @Column(name = "ass_nome", nullable = false)
+    @Column(name = "ass_nome")
     private String name;
 
-    @Column(name = "ass_cpf", nullable = false)
+    @Column(name = "ass_cpf")
     private String cpf;
 
 
